@@ -14,10 +14,11 @@ public class Main {
         int maxCredit = -1;
         int minCredit = 1_000_000_000;
         for (int j : credit) {
+            if (j < minCredit) {
+                minCredit = j;
+            }
             if (j > maxCredit) {
                 maxCredit = j;
-            } else if (j < minCredit) {
-                minCredit = j;
             }
         }
         System.out.printf("Минимальная сумма трат за неделю составила %s рублей\n", minCredit);
@@ -34,12 +35,10 @@ public class Main {
 
         System.out.println("\nЗадание 4\n");
         char[] reverseFullName = {'n', 'a', 'v', 'I', ' ', 'v', 'o', 'n', 'a', 'v', 'I'};
-        for (int i = 0; i < reverseFullName.length / 2; i++) {
-            char reverse = reverseFullName[i];
-            reverseFullName[i] = reverseFullName[reverseFullName.length - i - 1];
-            reverseFullName[reverseFullName.length - i - 1] = reverse;
+        for (int i = reverseFullName.length - 1; i >= 0; i--) {
+
+            System.out.print(reverseFullName[i]);
         }
-        System.out.println(reverseFullName);
 
     }
 }
